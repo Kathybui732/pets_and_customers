@@ -11,6 +11,12 @@ class PetTest < Minitest::Test
   def test_it_exists
     assert_instance_of Pet, @samson
   end
+
+  def test_it_has_attributes
+    assert_equal "Samson", @samson.name
+    assert_equal :dog, @samson.type
+    assert_equal 3, @samson.age
+  end
 end
 
 
