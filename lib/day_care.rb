@@ -27,6 +27,18 @@ class DayCare
       customer.id == id
     end
   end
+
+  def all_pets
+    @customers.flat_map do |customer|
+      customer.pets
+    end
+  end
+
+  def unfed_pets
+    all_pets.select do |pet|
+      !pet.fed?
+    end
+  end
 end
 
 
