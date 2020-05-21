@@ -14,6 +14,10 @@ class Customer
   def adopt(pet)
     @pets << pet
   end
+
+  def charge(amount)
+    @outstanding_balance += amount
+  end
 end
 
 
