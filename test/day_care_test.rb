@@ -23,6 +23,10 @@ class DayCareTest < Minitest::Test
   def test_it_has_attributes
     assert_equal "Claws n' Paws", @day_care.name
   end
+
+  def test_it_starts_with_no_customers
+    assert_equal [], @day_care.customers
+  end
 end
 
 
