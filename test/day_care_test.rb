@@ -14,6 +14,10 @@ class DayCareTest < Minitest::Test
     @justin = Customer.new("Justin", 5)
     @toki = Pet.new({name: "Toki", type: :rabbit, age: 7})
     @tofu = Pet.new({name: "Tofu", type: :dog, age: 13})
+    @joel.adopt(@samson)
+    @joel.adopt(@lucy)
+    @justin.adopt(@toki)
+    @justin.adopt(@tofu)
   end
 
   def test_it_exists
@@ -26,6 +30,12 @@ class DayCareTest < Minitest::Test
 
   def test_it_starts_with_no_customers
     assert_equal [], @day_care.customers
+  end
+
+  def test_it_can_add_customers
+    @day_care.add_customer(@joel)
+    @day_care.add_customer(@justin)
+    assert_equal [@joel, @justin], @day_care.customers
   end
 end
 
