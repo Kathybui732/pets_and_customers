@@ -13,6 +13,10 @@ class Pet
   def fed?
     @fed
   end
+
+  def feed
+    @fed = true
+  end
 end
 
 
