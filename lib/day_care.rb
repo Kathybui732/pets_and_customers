@@ -17,6 +17,10 @@ class DayCare
     @name = name
     @customers = []
   end
+
+  def add_customer(customer)
+    @customers << customer
+  end
 end
 
 
