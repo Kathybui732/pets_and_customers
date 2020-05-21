@@ -52,6 +52,40 @@ class DayCareTest < Minitest::Test
     assert_equal [@samson, @lucy, @toki, @tofu], @day_care.all_pets
     assert_equal [@samson, @tofu], @day_care.unfed_pets
   end
+
+  def test_feed_all_pets
+    @day_care.add_customer(@joel)
+    @day_care.add_customer(@justin)
+    @lucy.feed
+    @toki.feed
+    assert_equal false, @samson.fed?
+    assert_equal false, @tofu.fed?
+    @day_care.feed_all
+    assert_equal [], @day_care.unfed_pets
+    assert_equal true, @samson.fed?
+    assert_equal true, @tofu.fed?
+  end
+
+  def test_unfed_pets_by_customer
+    @day_care.add_customer(@joel)
+    @day_care.add_customer(@justin)
+    @toki.feed
+    expected = {
+      @joel => [:dog, :cat],
+      @justin => [:dog]
+    }
+    assert_equal expected, @day_care.unfed_pets_by_customer
+  end
+
+  def test_charge_customers_for_feeding
+    @day_care.add_customer(@joel)
+    @day_care.add_customer(@justin)
+    @toki.feed
+    @day_care.charge_customers
+    @day_care.feed_all
+    assert_equal 35, @joel.outstanding_balance
+    assert_equal 10, @justin.outstanding_balance
+  end
 end
 
 
