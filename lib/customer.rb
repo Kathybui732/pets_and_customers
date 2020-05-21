@@ -1,8 +1,12 @@
 class Customer
-  attr_reader
+  attr_reader :name,
+              :id,
+              :pets
 
-  def initialize(argument, arg2)
-    @argument = argument
+  def initialize(name, id)
+    @name = name
+    @id = id
+    @pets = []
   end
 end
 
