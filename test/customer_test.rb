@@ -14,6 +14,18 @@ class CustomerTest < Minitest::Test
   def test_it_exists
     assert_instance_of Customer, @joel
   end
+
+  def test_it_has_attributes
+    assert_equal "Joel", @joel.name
+    assert_equal 2, @joel.id
+    assert_equal [], @joel.pets
+  end
+
+  def test_test_adopt_adds_to_pets_array
+    @joel.adopt(@samson)
+    @joel.adopt(@lucy)
+    assert_equal [@samson, @lucy], @joel.pets
+  end
 end
 
 
