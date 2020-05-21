@@ -12,8 +12,8 @@
 class DayCare
   attr_reader :name
 
-  def initialize(argument)
-    @argument = argument
+  def initialize(name)
+    @name = name
   end
 end
 
