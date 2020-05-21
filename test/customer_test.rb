@@ -30,6 +30,12 @@ class CustomerTest < Minitest::Test
   def test_starts_with_no_outstanding_balance
     assert_equal 0, @joel.outstanding_balance
   end
+
+  def test_charge_adds_to_outstanding_balance
+    @joel.charge(15)
+    @joel.charge(7)
+    assert_equal 22, @joel.outstanding_balance
+  end
 end
 
 
