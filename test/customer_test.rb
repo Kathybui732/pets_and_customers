@@ -26,6 +26,10 @@ class CustomerTest < Minitest::Test
     @joel.adopt(@lucy)
     assert_equal [@samson, @lucy], @joel.pets
   end
+
+  def test_starts_with_no_outstanding_balance
+    assert_equal 0, @joel.outstanding_balance
+  end
 end
 
 
