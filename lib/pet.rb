@@ -1,8 +1,12 @@
 class Pet
-  attr_reader
+  attr_reader :name,
+              :type,
+              :age
 
-  def initialize(argument)
-    @argument = argument
+  def initialize(pets_params)
+    @name = pets_params[:name]
+    @type = pets_params[:type]
+    @age = pets_params[:age]
   end
 end
 
