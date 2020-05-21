@@ -7,6 +7,11 @@ class Pet
     @name = pets_params[:name]
     @type = pets_params[:type]
     @age = pets_params[:age]
+    @fed = false
+  end
+
+  def fed?
+    @fed
   end
 end
 
