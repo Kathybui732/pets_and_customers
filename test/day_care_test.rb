@@ -19,6 +19,10 @@ class DayCareTest < Minitest::Test
   def test_it_exists
     assert_instance_of DayCare, @day_care
   end
+
+  def test_it_has_attributes
+    assert_equal "Claws n' Paws", @day_care.name
+  end
 end
 
 
