@@ -10,10 +10,12 @@
 # number_pets_by_type
 
 class DayCare
-  attr_reader :name
+  attr_reader :name,
+              :customers
 
   def initialize(name)
     @name = name
+    @customers = []
   end
 end
 
