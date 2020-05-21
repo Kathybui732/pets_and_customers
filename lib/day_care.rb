@@ -16,6 +16,11 @@ class DayCare
   def initialize(name)
     @name = name
     @customers = []
+    @charges = {
+      :dog => 10,
+      :cat => 25,
+      :rabbit => 20
+    }
   end
 
   def add_customer(customer)
@@ -39,8 +44,31 @@ class DayCare
       !pet.fed?
     end
   end
-end
 
+  def feed_all
+    unfed_pets.each do |pet|
+      pet.feed
+    end
+  end
+
+  def unfed_pets_by_customer
+    pets_per_customer = Hash.new { |hash, key| hash[key] = []}
+    @customers.each do |customer|
+      customer.pets.each do |pet|
+        pets_per_customer[customer] << pet.type if !pet.fed?
+      end
+    end
+    pets_per_customer
+  end
+
+  def charge_customers
+    unfed_pets_by_customer.each do |customer, pets|
+      pets.each do |pet|
+        customer.charge(@charges[pet])
+      end
+    end
+  end
+end
 
 
 
