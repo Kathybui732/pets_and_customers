@@ -19,7 +19,12 @@ class PetTest < Minitest::Test
   end
 
   def test_it_starts_not_fed?
-    assert_equal false, @samson.def?
+    assert_equal false, @samson.fed?
+  end
+
+  def test_it_is_no_longer_hungry_after_fed
+    @samson.feed
+    assert_equal true, @samson.fed?
   end
 end
 
