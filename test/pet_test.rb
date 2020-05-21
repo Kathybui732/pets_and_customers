@@ -17,6 +17,10 @@ class PetTest < Minitest::Test
     assert_equal :dog, @samson.type
     assert_equal 3, @samson.age
   end
+
+  def test_it_starts_not_fed?
+    assert_equal false, @samson.def?
+  end
 end
 
 
