@@ -1,13 +1,13 @@
 # -name
 # -customers w/pets prob array
-# -groomer can find all customers with outstanding balance
-# -count number of pets by type
+# -groomer can find all customers by id
+# -lists pets unfed
 #
 # methods:
 # attr_reader name
 # customers = []
-# customers_with_outstanding_balance
-# number_pets_by_type
+# customers_
+# number_pets_unfed
 
 class DayCare
   attr_reader :name,
@@ -20,6 +20,12 @@ class DayCare
 
   def add_customer(customer)
     @customers << customer
+  end
+
+  def find_customer(id)
+    @customers.find do |customer|
+      customer.id == id
+    end
   end
 end
 
