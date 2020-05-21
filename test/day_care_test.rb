@@ -18,6 +18,8 @@ class DayCareTest < Minitest::Test
     @joel.adopt(@lucy)
     @justin.adopt(@toki)
     @justin.adopt(@tofu)
+    @joel.charge(15)
+    @joel.charge(7)
   end
 
   def test_it_exists
@@ -36,6 +38,12 @@ class DayCareTest < Minitest::Test
     @day_care.add_customer(@joel)
     @day_care.add_customer(@justin)
     assert_equal [@joel, @justin], @day_care.customers
+  end
+
+  def test_find_customer_by_id
+    @day_care.add_customer(@joel)
+    @day_care.add_customer(@justin)
+    assert_equal @joel, @day_care.find_customer(2)
   end
 end
 
